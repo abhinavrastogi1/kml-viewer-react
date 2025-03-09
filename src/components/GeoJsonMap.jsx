@@ -12,7 +12,7 @@ const GeoJsonMap = ({ geoJson }) => {
     // For forcing rerendering of the map to show changes in UI
     setRerender((prev) => prev + 1);
   }, [geoJson]);
-  //handle the change in map type
+//handle the change in map type
   const handleMapTypeChange = (event) => {
     const selectedMapType = event.target.value;
     let tileUrl = "";
@@ -53,7 +53,7 @@ const GeoJsonMap = ({ geoJson }) => {
           zoom={3}
           className="w-full h-[600px] sm:h-[400px] lg:h-[600px] xl:h-[800px]"
         >
-          {/* used to show map type */}
+           {/* used to show map type */}
           <TileLayer url={mapType} />
           {/* shows the data on the map */}
           <GeoJSON data={geoJson} key={reRender} />
