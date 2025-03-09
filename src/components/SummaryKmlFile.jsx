@@ -18,7 +18,8 @@ function SummaryKmlFile({ geoJson }) {
 
   return (
     <div className="overflow-x-hidden bg-white shadow-md rounded-lg my-4 w-full">
-      <table className="w-full table-auto text-left">table to show content
+      <table className="w-full table-auto text-left">
+        {/* table to show content */}
         <thead className="bg-blue-500  text-white">
           <tr className=" w-[50%]">
             <th className="px-4 py-2 w-[50%]">Geometry Type</th>
