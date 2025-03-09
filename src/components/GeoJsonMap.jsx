@@ -4,33 +4,28 @@ import "leaflet/dist/leaflet.css";
 
 const GeoJsonMap = ({ geoJson }) => {
   const [reRender, setRerender] = useState(0);
-  const [mapType, setMapType] = useState(
-    "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"
-  ); // Default map type
+  const [mapType, setMapType] = useState("satellite"); // Default map type
 
   useEffect(() => {
     // For forcing rerendering of the map to show changes in UI
     setRerender((prev) => prev + 1);
   }, [geoJson]);
-//handle the change in map type
-  const handleMapTypeChange = (event) => {
-    const selectedMapType = event.target.value;
-    let tileUrl = "";
-    switch (selectedMapType) {
-      case "satellite":
-        tileUrl = "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}";
-        break;
-      case "terrain":
-        tileUrl = "https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}";
-        break;
-      case "streets":
-        tileUrl = "https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}";
-        break;
-      default:
-        tileUrl = "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}";
-    }
 
-    setMapType(tileUrl);
+  const handleMapTypeChange = (event) => {
+    setMapType(event.target.value); // Update the map type based on dropdown selection
+  };
+
+  const getTileLayerUrl = () => {
+    switch (mapType) {
+      case "satellite":
+        return "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}";
+      case "terrain":
+        return "https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}";
+      case "streets":
+        return "https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}";
+      default:
+        return "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"; // Default to satellite
+    }
   };
 
   return (
@@ -47,15 +42,13 @@ const GeoJsonMap = ({ geoJson }) => {
           <option value="streets">Streets</option>
         </select>
 
-        {/* Map container or wrapper */}
+        {/* Map */}
         <MapContainer
           center={[20, 10]}
           zoom={3}
           className="w-full h-[600px] sm:h-[400px] lg:h-[600px] xl:h-[800px]"
         >
-           {/* used to show map type */}
-          <TileLayer url={mapType} />
-          {/* shows the data on the map */}
+          <TileLayer url={getTileLayerUrl()} />
           <GeoJSON data={geoJson} key={reRender} />
         </MapContainer>
       </div>
