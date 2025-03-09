@@ -1,12 +1,37 @@
-# React + Vite
+GeoJSON KML File Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project allows you to upload KML files, convert them to GeoJSON, and view them on an interactive map. You can also explore the details of the KML file like geometry types and calculate the total lengths of LineString and MultiLineString geometries.
 
-Currently, two official plugins are available:
+Features
+Upload a KML file and see its contents on a map.
+View a summary of all geometry types in the KML file.
+View detailed information like total length of LineString and MultiLineString geometries.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+Installation
+Clone the repository
+git clone https://github.com/yourusername/geojson-kml-viewer.git
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Install dependencies
+
+cd geojson-kml-viewer
+npm install
+
+Run the project
+npm start
+
+
+How to Use
+
+Upload a KML file by clicking the Choose File button.
+After the file is uploaded, it will be displayed on a map. You can then explore the summary and details of the KML file.
+Summary: It shows a count of different geometry types present in the KML.
+Details: Shows the total length (in kilometers) of LineString and MultiLineString geometries in the uploaded KML.
+
+
+Tech Stack:
+React
+TailwindCSS for styling
+Turf.js for geometry calculations
+react-leaflet for the map component
+togeojson to convert KML to GeoJSON
