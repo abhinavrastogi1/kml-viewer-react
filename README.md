@@ -1,37 +1,33 @@
-GeoJSON KML File Viewer
+# GeoJSON KML File Viewer
 
-This project allows you to upload KML files, convert them to GeoJSON, and view them on an interactive map. You can also explore the details of the KML file like geometry types and calculate the total lengths of LineString and MultiLineString geometries.
+This project allows you to upload KML files, convert them to GeoJSON, and view them on an interactive map. You can also explore the details of the KML file, such as geometry types and calculate the total lengths of `LineString` and `MultiLineString` geometries.
 
-Features
-Upload a KML file and see its contents on a map.
-View a summary of all geometry types in the KML file.
-View detailed information like total length of LineString and MultiLineString geometries.
+## Features
 
+- **Upload KML files**: Upload KML files and see their contents on an interactive map.
+- **View geometry summary**: Get a summary of all geometry types in the KML file.
+- **Detailed geometry info**: Calculate and view the total length of `LineString` and `MultiLineString` geometries.
 
-Installation
-Clone the repository
-git clone https://github.com/yourusername/geojson-kml-viewer.git
+---
 
-Install dependencies
+## Installation
 
-cd geojson-kml-viewer
-npm install
+To get started, clone the repository and install the required dependencies:
 
-Run the project
-npm start
+1. **Clone the repository**
+      ` git clone https://github.com/yourusername/geojson-kml-viewer.git`
+2. **Install dependencies**
+    `npm install`
 
-
-How to Use
-
-Upload a KML file by clicking the Choose File button.
-After the file is uploaded, it will be displayed on a map. You can then explore the summary and details of the KML file.
-Summary: It shows a count of different geometry types present in the KML.
-Details: Shows the total length (in kilometers) of LineString and MultiLineString geometries in the uploaded KML.
+3. **Run the Project**
+    `npm run dev `
 
 
-Tech Stack:
-React
-TailwindCSS for styling
-Turf.js for geometry calculations
-react-leaflet for the map component
-togeojson to convert KML to GeoJSON
+
+## Tech Stack
+
+- **React**:JavaScript library for building user interfaces.
+- **TailwindCSS**- Utility-first CSS framework for styling.
+- **Turf.js** - Geospatial library for geometry calculations.
+- **react-leaflet** - React wrapper for the Leaflet map component.
+- **togeojson** - Converts KML to GeoJSON.
